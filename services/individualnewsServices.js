@@ -46,6 +46,29 @@ const individualnews = async (args) => {
   }
 }
 
+const updateIndividualCompany = async (dataJSON) => {
+  const login_username = "rvp123"
+  const { applicationid, client, lang, z_id, recocompany } = dataJSON
+  const prisma = new PrismaClient()
+  if (z_id !== null || z_id !== undefined || z_id !== "") {
+
+    const recotobeUpdated = datetimeService.setDateUser({
+      recocompany
+    }, 'U', login_username);
+    const individualnewsUpdated = await prisma.individualnews.update({
+      where: {
+        z_id
+      },
+      data: recotobeUpdated
+    })
+    await prisma.$disconnect();
+    return individualnewsUpdated;
+  }
+}
+
+
+
+
 
 const deleteindividualnews =
   async (
@@ -57,17 +80,16 @@ const deleteindividualnews =
     const login_username = 'rvp123';
     const { applicationid, client, lang, username, z_id } = dataJSON;
 
-
     try {
-      const prisma = new PrismaClient()
-      const deletedStocknews = await prisma.individualnews.delete({
+      const prisma = new PrismaClient();
+      const deletednews = await prisma.individualnews.delete({
         where: {
           z_id
         },
       })
 
       await prisma.$disconnect()
-      return deletedStocknews;
+      return deletednews;
     } catch (err) {
 
       throw new Error('Unable to delete Recommendation');
@@ -76,4 +98,4 @@ const deleteindividualnews =
   }
 
 
-export default { deleteindividualnews, individualnews }
+export default { deleteindividualnews, individualnews, updateIndividualCompany }

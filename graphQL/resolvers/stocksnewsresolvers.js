@@ -21,7 +21,8 @@ const resolvers =
     // Resolver for uploadDocuments(input) : String
     savestocksnews: stocknewsService.savestocksnews,
     deletestocknews: stocknewsService.deletestocknews,
-    deleteindividualnews: individualnewsService.deleteindividualnews
+    deleteindividualnews: individualnewsService.deleteindividualnews,
+    updateIndividualCompany: individualnewsService.updateIndividualCompany
     //sendRecommendationNotification: recommendationSrevice.sendRecommendationNotification
 
   }

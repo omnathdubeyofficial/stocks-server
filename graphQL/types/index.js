@@ -38,4 +38,4 @@ const types = [
 // different files and wish to attempt merging them together.
 const typeDefs = mergeTypes(types, { all: true });
 
-export default typeDefs;
+export default typeDefs;
