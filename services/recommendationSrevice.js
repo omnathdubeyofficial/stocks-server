@@ -110,6 +110,9 @@ const  sendRecommendationNotification =async ({ recommendation} ,context )=>
       target7,
       target8,
       target9,
+      comment1,
+      comment2,
+      comment3,
       weightage,
       timeframe,reffiles } = dataJSON;
 
@@ -146,6 +149,9 @@ const  sendRecommendationNotification =async ({ recommendation} ,context )=>
     target7,
     target8,
     target9,
+    comment1,
+      comment2,
+      comment3,
     weightage,
     timeframe,
     reffiles
@@ -177,6 +183,9 @@ const  sendRecommendationNotification =async ({ recommendation} ,context )=>
         target7,
         target8,
         target9,
+        comment1,
+      comment2,
+      comment3,
         weightage,
         timeframe,
         reffiles
