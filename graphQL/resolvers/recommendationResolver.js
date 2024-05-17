@@ -13,11 +13,12 @@ const resolvers =
     Query: 
     {
       
-        
+        getRecommendations:recommendationSrevice.getRecommendations,
         recommendations:recommendationSrevice.recommendations,
      },
     Mutation:
     {
+        
         // Resolver for uploadDocuments(input) : String
         saveRecommendation : recommendationSrevice.saveRecommendation,
         deleteRecommendation : recommendationSrevice.deleteRecommendation,

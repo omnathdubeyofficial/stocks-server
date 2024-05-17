@@ -113,6 +113,32 @@ type oFileType
             duser       :   String,
             isdeleted   :   String
     }
+
+    type Recommendation {
+        recodate: String
+        name: String
+        cmp: String
+        addupto: String
+        sl: String
+        target1: String
+        target2: String
+        target3: String
+        target4: String
+        target5: String
+        target6: String
+        target7: String
+        target8: String
+        target9: String
+        timeframe: String
+        weightage: String
+        comment1: String
+        comment2: String
+      }
+       
+      type Query {
+        getRecommendations(infostring: String!): Recommendation
+    }
+      
     # Query Type
     type Query
     {
