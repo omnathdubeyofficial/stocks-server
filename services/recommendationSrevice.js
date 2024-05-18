@@ -206,8 +206,8 @@ function getRecommendations(infostring) {
         target9: T9 || 0,
         timeframe: TF,
         weightage: WT,
-        comment1: comment1 || 'No',
-        comment2: comment2 || 'No'
+        comment1: comment1,
+        comment2: comment2
       };  
       console.log(data);
       return data;
