@@ -48,12 +48,12 @@ const individualnews = async (args) => {
 
 const updateIndividualCompany = async (dataJSON) => {
   const login_username = "rvp123"
-  const { applicationid, client, lang, z_id, recocompany } = dataJSON
+  const { applicationid, client, lang, z_id, recocompany, date } = dataJSON
   const prisma = new PrismaClient()
   if (z_id !== null || z_id !== undefined || z_id !== "") {
 
     const recotobeUpdated = datetimeService.setDateUser({
-      recocompany
+      recocompany, date
     }, 'U', login_username);
     const individualnewsUpdated = await prisma.individualnews.update({
       where: {
