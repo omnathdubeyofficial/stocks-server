@@ -99,7 +99,7 @@ const saveindividualnews = async (dataJSON) => {
       await prisma.$queryRaw(query);
 
       // Execute the Python script with the company name as an argument
-      exec(`python C:\\Users\\admin\\Desktop\\server_base001-master\\script.py "${companyName}"`, async (error, stdout, stderr) => {
+      exec(`python C:\\Users\\navne\\Desktop\\stocks-server\\script.py "${companyName}"`, async (error, stdout, stderr) => {
         if (error) {
           console.error(`exec error: ${error}`);
           return;
@@ -115,7 +115,7 @@ const saveindividualnews = async (dataJSON) => {
         // Update recocompany in the database
         const updateQuery = Prisma.sql`UPDATE individualnews SET recocompany = ${bestMatchName} WHERE companyname = ${companyName}`;
         await prisma.$queryRaw(updateQuery);
-
+console.log("**************" , bestMatchName)
 
       });
 

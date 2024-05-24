@@ -7,7 +7,7 @@ import sys
 db_conn = mysql.connector.connect(
   host="localhost",
   user="root",
-  password="Rutuja_2001",
+  password="omnath8055",
   database="alldata"
 )
 cursor = db_conn.cursor()
