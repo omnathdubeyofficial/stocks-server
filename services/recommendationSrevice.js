@@ -9,10 +9,10 @@ const { PrismaClient } = Prisma;
 import datetimeService from '../services/dateTimeServices';
 import authenticationJWT from '../services/authenticationJWT'
 import subscriptionservices from '../services/subscriptionservices';
-
-
 import mysql from 'mysql';
 import stringSimilarity from 'string-similarity';
+
+
 
 async function getRecommendations(infostring) {
   console.log("", typeof infostring, infostring);
@@ -58,7 +58,7 @@ async function getRecommendations(infostring) {
   let T1, T2, T3, T4, T5, T6, T7, T8, T9;
   if (len1 - 1 === targetsStartIndex + 1) {
     targets = actionLine[targetsStartIndex + 1].split("/").map(item => item.trim());
-    // [T1, T2, T3, T4, T5, T6, T7, T8, T9] = targets;
+
     T1 = targets[0]
     T2 = targets[1]
     T3 = targets[2]
@@ -70,7 +70,7 @@ async function getRecommendations(infostring) {
     T9 = targets[8]
   } else {
     targets = actionLine.slice(targetsStartIndex + 1).filter(val => val !== '').map(target => target);
-    // [T1, T2, T3, T4, T5, T6, T7, T8, T9] = targets.filter((_, index) => index % 2 === 0);
+
     T1 = targets[0]
     T2 = targets[2]
     T3 = targets[4]
@@ -85,7 +85,29 @@ async function getRecommendations(infostring) {
   //To extract the stop loss:
   const slIndex = actionLine.indexOf('below') !== -1 ? actionLine.indexOf('below') : actionLine.indexOf('stop');
   const adduptoIndex = actionLine.indexOf('till');
+
+  //To extract timeframe
   let TF = infoString.includes('timeframe') ? infoLines[infoLines.findIndex(line => line.startsWith('timeframe'))].split(' ')[1] : 0;
+
+  // Define the mapping for the timeframe options
+  const timeframeMapping = {
+    '0': '0',
+    '1': '1',
+    '3': '3',
+    '6': '6',
+    '12': '12',
+    '12-24': '12|24',
+    '12-18': '12|18',
+    '3-6': '3|6',
+    '3-6-9': '3|6|9',
+    '3-6-9-12': '3|6|9|12',
+    '3-9': '3|9',
+    '6-24': '6|24'
+  };
+
+  // Select the appropriate timeframe from the dropdown
+  TF = timeframeMapping[TF] || '0';
+
 
   //To extract the weightage:
   let WT = infoString.includes('weightage') ? infoLines[infoLines.findIndex(line => line.startsWith('weightage'))].split(' ')[1] : 0;
@@ -120,7 +142,7 @@ async function getRecommendations(infostring) {
   // Function to fetch company names from MySQL table
   async function fetchCompanyNames() {
     try {
-      const results = await query("SELECT name FROM stockinfo WHERE uploaddate = '20240411'");
+      const results = await query("SELECT DISTINCT name FROM stockinfo");
       return results.map(result => result.name);
     } catch (error) {
       console.error('Error fetching company names:', error);
@@ -149,7 +171,7 @@ async function getRecommendations(infostring) {
     const bestMatchName = topCorrelatedNames[0].name;
     console.log(`Best Match Name: ${bestMatchName}`);
 
-    // Create the object after collecting data from the Python script
+    // Create the object 
     const data = {
       recodate: recordedDate,
       name: bestMatchName,
