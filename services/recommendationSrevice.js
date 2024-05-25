@@ -102,7 +102,14 @@ async function getRecommendations(infostring) {
     '3-6-9': '3|6|9',
     '3-6-9-12': '3|6|9|12',
     '3-9': '3|9',
-    '6-24': '6|24'
+    '6-24': '6|24',
+    '12/24': '12|24',
+    '12/18': '12|18',
+    '3/6': '3|6',
+    '3/6/9': '3|6|9',
+    '3/6/9/12': '3|6|9|12',
+    '3/9': '3|9',
+    '6/24': '6|24'
   };
 
   // Select the appropriate timeframe from the dropdown
@@ -119,6 +126,7 @@ async function getRecommendations(infostring) {
   const comment2 = infoLines[commentIndex2];
 
   // MySQL database connection configuration
+  
   const db_config = {
     host: "localhost",
     user: "root",
