@@ -128,12 +128,11 @@ async function getRecommendations(infostring) {
   // MySQL database connection configuration
   
   const db_config = {
-    host: "localhost",
-    user: "root",
-    password: "omnath8055",
-    database: "alldata"
-  };
-
+    host: process.env.HOST,
+    user: process.env.USER,
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE1
+  };
   // Create a MySQL connection pool
   const pool = mysql.createPool(db_config);
 
@@ -150,7 +149,10 @@ async function getRecommendations(infostring) {
   // Function to fetch company names from MySQL table
   async function fetchCompanyNames() {
     try {
-      const results = await query("SELECT DISTINCT name FROM stockinfo");
+      const source_table = process.env.SOURCE_TABLE
+
+      const results = await query(`SELECT DISTINCT name FROM ${source_table}`);
+      
       return results.map(result => result.name);
     } catch (error) {
       console.error('Error fetching company names:', error);
