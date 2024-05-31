@@ -1053,68 +1053,27 @@ model vstockinfo {
   eps_growth_7years                          Float?  @db.Float
   eps_growth_10years                         Float?  @db.Float
   profit_growth_7years                       Float?  @db.Float
-  profit_growth_10years                      Float?  @db.Float
-  exports_percentage_3years_back             Float?  @db.Float
-  exports_percentage_5years_back             Float?  @db.Float
-  average_5years_dividend                    Float?  @db.Float
-  average_return_on_capital_employed_3years  Float?  @db.Float
-  average_return_on_capital_employed_5years  Float?  @db.Float
-  average_return_on_capital_employed_7years  Float?  @db.Float
-  average_return_on_capital_employed_10years Float?  @db.Float
-  average_return_on_equity_10years           Float?  @db.Float
-  average_return_on_equity_7years            Float?  @db.Float
-  return_on_equity_5years_growth             Float?  @db.Float
-  operating_cash_flow_3years                 Float?  @db.Float
-  operating_cash_flow_5years                 Float?  @db.Float
-  operating_cash_flow_7years                 Float?  @db.Float
-  operating_cash_flow_10years                Float?  @db.Float
-  investing_cash_flow_10years                Float?  @db.Float
-  investing_cash_flow_7years                 Float?  @db.Float
-  investing_cash_flow_5years                 Float?  @db.Float
-  investing_cash_flow_3years                 Float?  @db.Float
-  opm_5year                                  Float?  @db.Float
-  opm_10year                                 Float?  @db.Float
-  working_capital_3years_back                Float?  @db.Float
-  working_capital_5years_back                Float?  @db.Float
-  working_capital_7years_back                Float?  @db.Float
-  working_capital_10years_back               Float?  @db.Float
-  debt_3years_back                           Float?  @db.Float
-  debt_5years_back                           Float?  @db.Float
-  debt_7years_back                           Float?  @db.Float
-  debt_10years_back                          Float?  @db.Float
-  number_of_shareholders_1year_back          Float?  @db.Float
-  change_in_promoter_holding_3years          Float?  @db.Float
-  average_dividend_payout_3years             Float?  @db.Float
-  net_block_3years_back                      Float?  @db.Float
-  net_block_5years_back                      Float?  @db.Float
-  net_block_7years_back                      Float?  @db.Float
-  cash_3years_back                           Float?  @db.Float
-  cash_5years_back                           Float?  @db.Float
-  cash_7years_back                           Float?  @db.Float
-  average_debtor_days_3years                 Float?  @db.Float
-  debtor_days_3years_back                    Float?  @db.Float
-  debtor_days_5years_back                    Float?  @db.Float
-  return_on_assets_5years                    Float?  @db.Float
-  return_on_assets_3years                    Float?  @db.Float
-  historical_pe_3years                       Float?  @db.Float
-  historical_pe_10years                      Float?  @db.Float
-  historical_pe_7years                       Float?  @db.Float
-  historical_pe_5years                       Float?  @db.Float
-  volume_1year_average                       Float?  @db.Float
-  average_earnings_5year                     Float?  @db.Float
-  average_earnings_10year                    Float?  @db.Float
-  average_ebit_5year                         Float?  @db.Float
-  average_ebit_10year                        Float?  @db.Float
-  market_capitalization_3years_back          Float?  @db.Float
-  market_capitalization_5years_back          Float?  @db.Float
-  market_capitalization_7years_back          Float?  @db.Float
-  market_capitalization_10years_back         Float?  @db.Float
-  average_working_capital_days_3years        Float?  @db.Float
-  return_over_7years                         Float?  @db.Float
-  return_over_10years                        Float?  @db.Float
-  change_in_fii_holding_3years               Float?  @db.Float
-  uploaddate                                 String? @db.VarChar(8)
-  dii_holding                                String? @db.VarChar(100)
 
   @@ignore
+}
+
+model companystatus {
+  z_id          String  @id @db.VarChar(100)
+  applicationid String? @db.VarChar(100)
+  client        String? @db.VarChar(100)
+  lang          String? @db.VarChar(100)
+  t_id          String? @db.VarChar(100)
+  companyname   String? @db.VarChar(100)
+  comment       String? @db.VarChar(10000)
+  status        String? @db.VarChar(100)
+  reviewdate    String? @db.VarChar(100)
+  cdate         String? @db.VarChar(100)
+  ctime         String? @db.VarChar(100)
+  cuser         String? @db.VarChar(100)
+  udate         String? @db.VarChar(100)
+  utime         String? @db.VarChar(100)
+  uuser         String? @db.VarChar(100)
+  ddate         String? @db.VarChar(100)
+  dtime         String? @db.VarChar(100)
+  duser         String? @db.VarChar(100)
 }

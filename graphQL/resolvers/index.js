@@ -11,7 +11,7 @@ import merge from 'lodash/merge';
 
 
 import authenticationResolvers from './authenticationResolvers';
-
+import companystatusResolver from './companystatusResolver';
 import Rcecommendation from './recommendationResolver'
 import masterdatResolvers from './masterdataResolvers';
 import stocknewsResolver from './stocksnewsresolvers';
@@ -25,7 +25,9 @@ const resolvers = merge(
     Rcecommendation.Query,
     masterdatResolvers.Query,
     stocknewsResolver.Mutation,
-    stocknewsResolver.Query
+    stocknewsResolver.Query,
+    companystatusResolver.Mutation,
+    companystatusResolver.Query
 );
 
 // Export merged resolvers

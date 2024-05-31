@@ -10,7 +10,7 @@ import documentsTypes from './documentsTypes';
 
 import docHeaderTypes from './docHeaderTypes';
 import docDetailTypes from './docDetailTypes';
-
+import companystatusType from './companystatusType';
 import user_type from './user_type';
 import docType from './docType';
 import stockType from './stockType';
@@ -30,7 +30,8 @@ const types = [
   stockType,
   recommendationType,
   stocksnewsType,
-  individualnewsType
+  individualnewsType,
+  companystatusType
 ];
 
 // NOTE: 2nd param is optional, and defaults to false
