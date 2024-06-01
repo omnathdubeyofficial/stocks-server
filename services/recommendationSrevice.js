@@ -132,7 +132,7 @@ async function getRecommendations(infostring) {
     user: process.env.USER,
     password: process.env.PASSWORD,
     database: process.env.DATABASE1
-  };
+};
   // Create a MySQL connection pool
   const pool = mysql.createPool(db_config);
 

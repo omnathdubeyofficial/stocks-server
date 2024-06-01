@@ -31,6 +31,21 @@ const savecompanystatus =
         comment
       }, 'I', login_username);
 
+// Check if email ID already exists
+const existdatacompanyname = await prisma.companystatus.findFirst({
+  where: {
+    companyname
+  },
+});
+
+if (existdatacompanyname) {
+  throw new Error("Company Name Already Exist");
+} 
+
+
+
+
+
       console.log("Created records**:", recotobeCreated)
 
       const companystatusCreated = await prisma.companystatus.create({
