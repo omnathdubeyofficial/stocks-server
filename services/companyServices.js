@@ -39,10 +39,8 @@ const existdatacompanyname = await prisma.companystatus.findFirst({
 });
 
 if (existdatacompanyname) {
-  throw new Error("Company Name Already Exist");
+  throw new Error("Company Name Already Exists");
 } 
-
-
 
 
 
