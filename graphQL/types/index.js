@@ -17,6 +17,7 @@ import stockType from './stockType';
 import recommendationType from './recommendationType';
 import stocksnewsType from './stocksnewsType';
 import individualnewsType from './individualnewsType';
+import companyCodeType from './companyCodesType';
 
 // Merge all of the types together
 const types = [
@@ -31,7 +32,8 @@ const types = [
   recommendationType,
   stocksnewsType,
   individualnewsType,
-  companystatusType
+  companystatusType,
+  companyCodeType
 ];
 
 // NOTE: 2nd param is optional, and defaults to false

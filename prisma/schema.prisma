@@ -1077,3 +1077,25 @@ model companystatus {
   dtime         String? @db.VarChar(100)
   duser         String? @db.VarChar(100)
 }
+
+model companycodes {
+  z_id          String  @id @db.VarChar(100)
+  applicationid String? @db.VarChar(100)
+  client        String? @db.VarChar(100)
+  lang          String? @db.VarChar(100)
+  t_id          String? @db.VarChar(100)
+  code_code     String? @db.VarChar(100)
+  code_type     String? @db.VarChar(100)
+  code_desc     String? @db.VarChar(1000)
+  code_desc1    String? @db.VarChar(1000)
+  code_desc2    String? @db.VarChar(1000)
+  ctime         String? @db.VarChar(100)
+  cuser         String? @db.VarChar(100)
+  udate         String? @db.VarChar(100)
+  utime         String? @db.VarChar(100)
+  uuser         String? @db.VarChar(100)
+  ddate         String? @db.VarChar(100)
+  dtime         String? @db.VarChar(100)
+  duser         String? @db.VarChar(100)
+  cdate         String? @db.VarChar(100)
+}
